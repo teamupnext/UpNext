@@ -16,32 +16,64 @@ struct liking{
 var songList = [post]()
 var myLikes = [liking]()
 
+var npArtist : String = ""
+var npSong : String = ""
+var npImage : UIImage? = nil
+
+var restart : Bool = false
+var lastSong : Bool = false
+
+var numAppeared : Int = 0
+
 class upNextListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var nowPlayingView: UIView!
+    @IBOutlet weak var nowPlayingArtist: UILabel!
+    @IBOutlet weak var nowPlayingImage: UIImageView!
+    @IBOutlet weak var nowPlayingSong: UILabel!
     
     
-    @IBOutlet weak var goToPlayer: UIButton!
+//    @IBOutlet weak var goToPlayer: UIButton!
     
     @IBOutlet weak var tableView2: UITableView!
     override func viewDidLoad() {
-        songList.append(post.init(mainImage: nil, name: "First", artistName: "ss", trackU: "sd", likes: 0, liked: false ))
-        songList.append(post.init(mainImage: nil, name: "Second", artistName: "dd", trackU: "fw", likes: 0, liked: false ))
-        songList.append(post.init(mainImage: nil, name: "Third", artistName: "fwef", trackU: "fve", likes: 0, liked: false ))
-        myLikes.append(liking.init(likesForSong: 0, liked: false))
-        myLikes.append(liking.init(likesForSong: 0, liked: false))
-        myLikes.append(liking.init(likesForSong: 0, liked: false))
+  //      songList.append(post.init(mainImage: nil, name: "First", artistName: "ss", trackU: "sd", likes: 0, liked: false ))
+    //    songList.append(post.init(mainImage: nil, name: "Second", artistName: "dd", trackU: "fw", likes: 0, liked: false ))
+      //  songList.append(post.init(mainImage: nil, name: "Third", artistName: "fwef", trackU: "fve", likes: 0, liked: false ))
+//        myLikes.append(liking.init(likesForSong: 0, liked: false))
+  //      myLikes.append(liking.init(likesForSong: 0, liked: false))
+    //    myLikes.append(liking.init(likesForSong: 0, liked: false))
         super.viewDidLoad()
         tableView2.delegate = self
         tableView2.dataSource = self
         tableView2.reloadData()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "ViewTapped")
+        self.nowPlayingView.addGestureRecognizer(tapGesture)
 
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if userIsHost == false{
-            goToPlayer.isHidden = true
+    func ViewTapped(){
+        if userIsHost == true{
+            self.performSegue(withIdentifier: "showPlayer", sender: nil)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView2.reloadData()
+        nowPlayingArtist.text = npArtist
+        nowPlayingImage.image = npImage
+        nowPlayingSong.text = npSong
+        if userIsHost == false{
+//            goToPlayer.isHidden = true
+        }else{
+            if songList.count == 1 && numAppeared == 0{
+                numAppeared = numAppeared + 1
+                self.performSegue(withIdentifier: "showPlayer", sender: nil)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,11 +128,11 @@ class upNextListViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
     
-    
+    /*
     @IBAction func goToPlayerClicked(_ sender: Any) {
         if userIsHost == true{
             self.performSegue(withIdentifier: "showPlayer", sender: nil)
         }
-    }
+    }*/
 
 }

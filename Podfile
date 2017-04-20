@@ -8,4 +8,7 @@ target 'SpotifyTest' do
   # Pods for SpotifyTest
 	pod 'Alamofire', '~> 4.4'
 
+  # Pod for Firebase
+	pod 'Firebase/Core'
+
 end

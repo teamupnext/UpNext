@@ -6,6 +6,7 @@
 //  Copyright © 2016 Seth Rininger. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -17,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     var window: UIWindow?
     var session: SPTSession?
 //    var player: SPTAudioStreamingController?
-    let kClientId = "ca5c4490e38f41818a6d32a14a0ad2f3"
+    let kClientId = "5de918d4037f4e87948a90839d79c574"//"ca5c4490e38f41818a6d32a14a0ad2f3"
     let kCallbackURL = "spotifytest://returnAfterLogin"
     let kTokenSwapURL = "http://localhost:1234/swap"
     let kTokenRefreshServiceURL = "http://localhost:1234/refresh"
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FIRApp.configure()
         SPTAuth.defaultInstance().clientID = kClientId
         SPTAuth.defaultInstance().redirectURL = URL(string:kCallbackURL)
         //SPTAuth.defaultInstance().tokenSwapURL = URL(string:kTokenSwapURL)

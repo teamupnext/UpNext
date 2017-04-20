@@ -22,8 +22,13 @@ var posts = [post]()
 
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
+    @IBOutlet weak var addSongButton: UIButton!
+    var indexOfSong : Int = -1
 
     var searchURL = String()
+    
+    var aSong : post? = nil
     
     @IBOutlet weak var mySearchBar: UISearchBar!
     
@@ -44,7 +49,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addSongButton.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
@@ -71,6 +76,23 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        indexOfSong = (indexPath?.row)!
+        addSongButton.isHidden = false
+    }
+    
+    @IBAction func AddSongClicked(_ sender: Any) {
+//        if songList.count == 0{
+  //          restart = true
+    //    }
+        aSong = posts[indexOfSong]
+        songList.append(post.init(mainImage: aSong?.mainImage, name: aSong?.name, artistName: aSong?.artistName, trackU: aSong?.trackU, likes: 0, liked: false ))
+        myLikes.append(liking.init(likesForSong: 0, liked: false))
+//        self.performSegue(withIdentifier: "showSongList", sender: nil)
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+ 
     func callAlamo(url: String){
         Alamofire.request(url).responseJSON(completionHandler: {
             response in
@@ -143,4 +165,5 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 */
     
 
+    
 }
