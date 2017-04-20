@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>UpNext</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,7 +29,11 @@
 			<string>com.spotify.spotify-action</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+<<<<<<< HEAD
 				<string>UpNext</string>
+=======
+				<string>spotifytest</string>
+>>>>>>> b3346ea3b2ffdc086d48c222dbcc7bde53c3f9f2
 			</array>
 		</dict>
 	</array>

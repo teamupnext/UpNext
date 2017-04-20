@@ -258,17 +258,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UDd-YH-1WI">
-                                <rect key="frame" x="0.0" y="98" width="103" height="104"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dx5-sF-89Z">
+                                <rect key="frame" x="0.0" y="64" width="350" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48a-0S-XMQ">
-                                <rect key="frame" x="154" y="143" width="42" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UDd-YH-1WI">
+                                        <rect key="frame" x="8" y="26" width="103" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48a-0S-XMQ">
+                                        <rect key="frame" x="129" y="23" width="131" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDq-vY-4rP">
+                                        <rect key="frame" x="129" y="65" width="137" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="do5-vj-H9K">
                                 <rect key="frame" x="0.0" y="57" width="94" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -283,16 +297,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xDo-dS-z8g">
-                                <rect key="frame" x="0.0" y="249" width="375" height="493"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xDo-dS-z8g">
+                                <rect key="frame" x="0.0" y="249" width="375" height="451"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="upNextListCell" rowHeight="85" id="Qwm-pw-4Od" customClass="upNextListTableViewCell" customModule="SpotifyTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="upNextListCell" rowHeight="102" id="Qwm-pw-4Od" customClass="upNextListTableViewCell" customModule="SpotifyTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qwm-pw-4Od" id="1V3-Pe-mLX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHH-oA-Ahj">
@@ -303,7 +317,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruK-iq-1vd">
-                                                    <rect key="frame" x="134" y="45" width="157" height="21"/>
+                                                    <rect key="frame" x="134" y="37" width="157" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -315,7 +329,7 @@
                                                     <state key="normal" title="LIKE"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vrP-nE-hNg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="126" height="84"/>
+                                                    <rect key="frame" x="8" y="0.0" width="93" height="93"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -329,27 +343,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrw-sy-xtI">
-                                <rect key="frame" x="250" y="135" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to Player"/>
-                                <connections>
-                                    <action selector="goToPlayerClicked:" destination="L3p-YO-619" eventType="touchUpInside" id="qGj-Qt-yHr"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDq-vY-4rP">
-                                <rect key="frame" x="154" y="101" width="42" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Song List" id="Z9m-8D-KjO">
-                        <barButtonItem key="rightBarButtonItem" title="Add Song" id="5MZ-Bd-uhC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5MZ-Bd-uhC">
                             <connections>
                                 <segue destination="aPB-qU-F4Z" kind="show" id="cbC-hy-qam"/>
                             </connections>
@@ -357,14 +356,17 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="goToPlayer" destination="mrw-sy-xtI" id="Aog-iw-Ofg"/>
+                        <outlet property="nowPlayingArtist" destination="48a-0S-XMQ" id="5Uz-hx-r5K"/>
+                        <outlet property="nowPlayingImage" destination="UDd-YH-1WI" id="BGh-PT-Etl"/>
+                        <outlet property="nowPlayingSong" destination="FDq-vY-4rP" id="MP7-0h-yL1"/>
+                        <outlet property="nowPlayingView" destination="Dx5-sF-89Z" id="jMX-k6-xf2"/>
                         <outlet property="tableView2" destination="xDo-dS-z8g" id="6RE-Rd-gMu"/>
                         <segue destination="zum-gU-zPL" kind="show" identifier="showPlayer" id="Qjc-bs-EsF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg2-SA-51c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2758" y="413"/>
+            <point key="canvasLocation" x="2756" y="412.44377811094455"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Gfb-sM-Ol3">
@@ -421,7 +423,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onm-OW-1M2">
-                                <rect key="frame" x="121" y="634" width="134" height="30"/>
+                                <rect key="frame" x="120.5" y="634" width="134" height="30"/>
                                 <state key="normal" title="Log out from player">
                                     <color key="titleColor" red="0.46784092589999998" green="1" blue="0.44851382670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -546,7 +548,7 @@
                                         <rect key="frame" x="0.0" y="72" width="374" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khs-TB-3n8" id="nuJ-HT-e9s">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYu-Ww-DGJ">
@@ -573,7 +575,6 @@
                                             <outlet property="CoverImage" destination="11f-QA-jEY" id="TkN-b0-yk7"/>
                                             <outlet property="Description" destination="Bmt-6I-uys" id="h8e-dL-Emn"/>
                                             <outlet property="Song" destination="VYu-Ww-DGJ" id="gtE-U8-bzi"/>
-                                            <segue destination="zum-gU-zPL" kind="show" id="64J-Ia-H0T"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -581,7 +582,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="jXJ-1J-s5b"/>
+                    <navigationItem key="navigationItem" title="Search" id="jXJ-1J-s5b">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="PmG-2K-kPe"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mySearchBar" destination="DmN-oD-aHa" id="0p6-fi-qx3"/>
                         <outlet property="tableView" destination="Uuy-iU-fN6" id="UJr-nI-cfn"/>
@@ -615,7 +618,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CRh-OD-U7H"/>
-        <segue reference="Qjc-bs-EsF"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.26085179889999999" green="0.6180534674" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

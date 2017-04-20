@@ -143,16 +143,34 @@ class ViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStrea
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        myCounter = myCounter + 1
+        if songList.count != 0{
+            myCounter = myCounter + 1
+        }
         super.viewDidAppear(animated)
         if (myCounter == 1){
             self.handleNewSession()
+            myCounter = myCounter + 1
         }else{
             self.activateAudioSession()
-            print("123: \(SPTAudioStreamingController.sharedInstance().playbackState.accessibilityActivate())")
+     //       print("123: \(SPTAudioStreamingController.sharedInstance().playbackState.accessibilityActivate())")
             SPTAudioStreamingController.sharedInstance().delegate = self
             SPTAudioStreamingController.sharedInstance().playbackDelegate = self
+            if restart == true{
+                self.updateUI()
+                SPTAudioStreamingController.sharedInstance().playSpotifyURI("\(songList[0].trackU!)", startingWith: 0, startingWithPosition: 0) { error in
+                    if error != nil {
+                        print("*** failed to play: \(error)")
+                        return
+                    }
+                }
+                npSong = songList[0].name
+                npArtist = songList[0].artistName
+                npImage = songList[0].mainImage
+                songList.remove(at: 0)
+                restart = false
+            }
         }
+
     }
     
     
@@ -223,6 +241,14 @@ class ViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStrea
         let positionDouble = Double(position)
         let durationDouble = Double(SPTAudioStreamingController.sharedInstance().metadata.currentTrack!.duration)
         self.progressSlider.value = Float(positionDouble / durationDouble)
+        if songList.count == 0{
+            let position1 = Double(positionDouble / durationDouble)
+            if position1 > 0.99 {
+                SPTAudioStreamingController.sharedInstance().setIsPlaying(false, callback: nil)
+                restart = true
+                numAppeared = 0
+            }
+        }
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController, didStartPlayingTrack trackUri: String) {
@@ -237,12 +263,16 @@ class ViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStrea
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController, didStopPlayingTrack trackUri: String) {
         print("Finishing: \(trackUri)")
         self.updateUI()
-        SPTAudioStreamingController.sharedInstance().playSpotifyURI("\(posts[0].trackU!)", startingWith: 0, startingWithPosition: 0) { error in
+        SPTAudioStreamingController.sharedInstance().playSpotifyURI("\(songList[0].trackU!)", startingWith: 0, startingWithPosition: 0) { error in
             if error != nil {
                 print("*** failed to play: \(error)")
                 return
             }
         }
+        npSong = songList[0].name
+        npArtist = songList[0].artistName
+        npImage = songList[0].mainImage
+        songList.remove(at: 0)
         
     }
     
@@ -251,13 +281,22 @@ class ViewController: UIViewController, SPTAudioStreamingDelegate, SPTAudioStrea
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController) {
         //print("Postss: \(posts[0].name!)")
         //self.updateUI()
-        SPTAudioStreamingController.sharedInstance().playSpotifyURI("\(myTrack)", startingWith: 0, startingWithPosition: 0) { error in
-            if error != nil {
-                print("*** failed to play: \(error)")
-                return
+        if songList.count != 0{
+            SPTAudioStreamingController.sharedInstance().playSpotifyURI("\(songList[0].trackU!)", startingWith: 0, startingWithPosition: 0) { error in
+                if error != nil {
+                    print("*** failed to play: \(error)")
+                    return
+                }
             }
+    //        SPTAudioStreamingController.sharedInstance().queueSpotifyURI("spotify:track:5eCkuGPZNl4mISFNPgr3Dd", callback: nil)
+            npSong = songList[0].name
+            npArtist = songList[0].artistName
+            npImage = songList[0].mainImage
+            songList.remove(at: 0)
+        }else{
+            
         }
-        SPTAudioStreamingController.sharedInstance().queueSpotifyURI("spotify:track:5eCkuGPZNl4mISFNPgr3Dd", callback: nil)
+
     }
     
     //spotify:user:spotify:playlist:2yLXxKhhziG2xzy7eyD4TD
