@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     var window: UIWindow?
     var session: SPTSession?
 //    var player: SPTAudioStreamingController?
-    let kClientId = "ca5c4490e38f41818a6d32a14a0ad2f3"
-    let kCallbackURL = "spotifytest://returnAfterLogin"
+    let kClientId = "5de918d4037f4e87948a90839d79c574"
+    let kCallbackURL = "UpNext://returnAfterLogin"
     let kTokenSwapURL = "http://localhost:1234/swap"
     let kTokenRefreshServiceURL = "http://localhost:1234/refresh"
     let kSessionUserDefaultsKey = "SpotifySession"

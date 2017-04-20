@@ -24,9 +24,9 @@ class upNextListViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView2: UITableView!
     override func viewDidLoad() {
-        songList.append(post.init(mainImage: nil, name: "First", artistName: "ss", trackU: "sd", likes: 0, liked: false ))
-        songList.append(post.init(mainImage: nil, name: "Second", artistName: "dd", trackU: "fw", likes: 0, liked: false ))
-        songList.append(post.init(mainImage: nil, name: "Third", artistName: "fwef", trackU: "fve", likes: 0, liked: false ))
+        songList.append(post.init(mainImage: nil, name: "First", artistName: "Artist1", trackU: "sd", likes: 0, liked: false ))
+        songList.append(post.init(mainImage: nil, name: "Second", artistName: "Artist2", trackU: "fw", likes: 0, liked: false ))
+        songList.append(post.init(mainImage: nil, name: "Third", artistName: "Artist3", trackU: "fve", likes: 0, liked: false ))
         myLikes.append(liking.init(likesForSong: 0, liked: false))
         myLikes.append(liking.init(likesForSong: 0, liked: false))
         myLikes.append(liking.init(likesForSong: 0, liked: false))

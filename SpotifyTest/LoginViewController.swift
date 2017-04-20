@@ -17,6 +17,11 @@ class LoginViewController: UIViewController, SPTStoreControllerDelegate, WebView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let auth = SPTAuth.defaultInstance()
+        if auth!.session != nil && auth!.session.isValid() {
+            self.statusLabel.text = ""
+            self.showPlayer()
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(self.sessionUpdatedNotification), name: NSNotification.Name(rawValue: "sessionUpdated"), object: nil)
         self.statusLabel.text = ""
         self.firstLoad = true
